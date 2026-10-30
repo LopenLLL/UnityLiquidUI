@@ -1,0 +1,22 @@
+{
+  "name": "com.liquidui",
+  "version": "1.0.0",
+  "displayName": "Liquid UI",
+  "description": "A high-performance Liquid UI, frosted glass blur, and screen capture render feature built on Unity 6 / URP 17+ Native RenderGraph architecture.",
+  "unity": "6000.0",
+  "unityRelease": "0b1",
+  "dependencies": {
+    "com.unity.render-pipelines.universal": "17.0.0"
+  },
+  "keywords": [
+    "ui",
+    "liquid",
+    "glass",
+    "blur",
+    "rendergraph",
+    "urp"
+  ],
+  "author": {
+    "name": "Developer"
+  }
+}

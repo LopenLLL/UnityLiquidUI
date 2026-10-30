@@ -1,0 +1,27 @@
+# OS generated files
+[Dd]esktop.ini
+.DS_Store
+Thumbs.db
+
+# Visual Studio / Rider / VSCode temporary files
+.vs/
+.idea/
+*.user
+*.suo
+*.userprefs
+*.sln
+*.csproj
+*.unityproj
+
+# Build / Output folders
+Build/
+Builds/
+Logs/
+obj/
+bin/
+
+# Crashlytics
+crashlytics-build.properties
+
+# IMPORTANT: Unity package metadata files must be committed!
+!*.meta
