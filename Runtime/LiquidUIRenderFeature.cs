@@ -60,6 +60,7 @@ public class LiquidUIRenderFeature : ScriptableRendererFeature
         // It is passed as a parameter to the delegate function that executes the RenderGraph pass.
         private class PassData
         {
+            public Material material;
             public BlurMidPyramid blurMidPyramid;
         }
 
@@ -94,6 +95,16 @@ public class LiquidUIRenderFeature : ScriptableRendererFeature
                 builder.SetRenderFunc((PassData data, UnsafeGraphContext context) =>
                 {
                     var cmd = CommandBufferHelpers.GetNativeCommandBuffer(context.cmd);
+                    var loadAction = RenderBufferLoadAction.DontCare;
+                    var storeAction = RenderBufferStoreAction.Store;
+                    
+                    for (int i = 1; i < data.blurMidPyramid.MidCount; i++)
+                    {
+                        ref var source = ref data.blurMidPyramid.mipUpPyramidTextures[i - 1];
+                        ref var destination = ref data.blurMidPyramid.mipUpPyramidTextures[i];
+                        Blitter.BlitCameraTexture(cmd, source, destination,loadAction,storeAction,data.material,0);
+                    }
+                    
                     
                 });
             }
